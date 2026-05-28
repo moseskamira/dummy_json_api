@@ -1,0 +1,16 @@
+import 'package:dio/dio.dart';
+
+import 'api_client.dart';
+
+class ApiService {
+  static final ApiService _instance = ApiService._internal();
+  late final ApiClient apiClient;
+  late final Dio dio;
+
+  factory ApiService() => _instance;
+
+  ApiService._internal() {
+    dio = Dio();
+    apiClient = ApiClient(dio);
+  }
+}

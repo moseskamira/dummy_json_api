@@ -5,6 +5,8 @@ import 'app_colors.dart';
 import 'theme_data.dart';
 
 class AppTheme {
+  AppTheme._();
+
   static ThemeData lightTheme() {
     return ThemeData(
       useMaterial3: true,
