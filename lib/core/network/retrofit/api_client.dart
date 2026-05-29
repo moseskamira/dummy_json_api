@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:dummy_json_api/features/auth/data/models/login_response.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 
@@ -14,5 +15,5 @@ abstract class ApiClient {
   factory ApiClient(Dio dio) => _ApiClient(dio);
 
   @POST(Apis.login)
-  Future<dynamic> login(@Body() LoginRequest request);
+  Future<LoginResponse> login(@Body() LoginRequest request);
 }

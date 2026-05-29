@@ -40,6 +40,8 @@ dependencies:
   json_serializable: ^6.14.0
   json_annotation: ^4.12.0
   dio: ^5.9.2
+  flutter_bloc: ^9.1.1
+  equatable: ^2.0.8
 
 dev_dependencies:
   flutter_test:
