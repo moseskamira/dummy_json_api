@@ -6,8 +6,13 @@ part 'login_request.g.dart';
 class LoginRequest {
   String username;
   String password;
+  int expiresInMins;
 
-  LoginRequest({required this.username, required this.password});
+  LoginRequest({
+    required this.username,
+    required this.password,
+    this.expiresInMins = 30,
+  });
 
   factory LoginRequest.fromJson(Map<String, dynamic> json) =>
       _$LoginRequestFromJson(json);
