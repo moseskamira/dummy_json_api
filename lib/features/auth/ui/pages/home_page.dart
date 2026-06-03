@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/utils/common_functions.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -10,9 +12,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Home')),
-      body: Column(children: [Text('This is the home page')]),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: Text(
+            'This is the home page',
+            style: CommonFunctions.baseStyle,
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ],
     );
   }
 }
