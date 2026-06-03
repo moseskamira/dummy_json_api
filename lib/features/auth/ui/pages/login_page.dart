@@ -50,7 +50,7 @@ class _LoginPageState extends State<LoginPage> {
       body: BlocConsumer<AuthCubit, AuthState>(
         listener: (ctx, state) {
           if (state is LoginSuccessState) {
-            ctx.go(RoutePath.homePage);
+            ctx.go(RoutePath.appShell);
           }
           if (state is LoginErrorState) {
             AppSnackBar.show(context: ctx, message: state.message);
