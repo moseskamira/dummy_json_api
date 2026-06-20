@@ -17,7 +17,7 @@ class ProfileRepositoryImpl implements ProfileRepository {
       final response = await apiClient.profile();
       return NetworkResponse(true, data: response);
     } on DioException catch (e) {
-      final message = e.message;
+      final message = e.response?.data['message'];
       return NetworkResponse(false, error: message);
     } catch (e) {
       return NetworkResponse(false, error: e.toString());

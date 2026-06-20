@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dummy_json_api/features/auth/data/models/login_response.dart';
+import 'package:dummy_json_api/features/profile/data/models/user_profile_dto.dart';
 import 'package:retrofit/error_logger.dart';
 import 'package:retrofit/http.dart';
 
@@ -16,5 +17,5 @@ abstract class ApiClient {
   Future<LoginResponse> login(@Body() LoginRequest request);
 
   @GET(Apis.profile)
-  Future<dynamic> profile();
+  Future<UserProfileDto> profile();
 }
