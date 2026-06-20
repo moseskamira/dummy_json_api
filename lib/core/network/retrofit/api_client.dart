@@ -10,10 +10,11 @@ part 'api_client.g.dart';
 
 @RestApi(baseUrl: Apis.BaseUrl)
 abstract class ApiClient {
-  //These two factory definitions below work but I prefer the second option
-  //  factory ApiClient(Dio dio) = _ApiClient;
   factory ApiClient(Dio dio) => _ApiClient(dio);
 
   @POST(Apis.login)
   Future<LoginResponse> login(@Body() LoginRequest request);
+
+  @GET(Apis.profile)
+  Future<dynamic> profile();
 }

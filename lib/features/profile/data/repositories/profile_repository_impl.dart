@@ -1,0 +1,26 @@
+import 'package:dio/dio.dart';
+import 'package:dummy_json_api/core/network/response/network_response.dart';
+import 'package:dummy_json_api/core/network/retrofit/api_client.dart';
+import 'package:dummy_json_api/core/network/retrofit/api_service.dart';
+import 'package:dummy_json_api/features/profile/domain/repositories/profile_repository.dart';
+
+class ProfileRepositoryImpl implements ProfileRepository {
+  late ApiClient apiClient;
+
+  ProfileRepositoryImpl() {
+    apiClient = ApiService().apiClient;
+  }
+
+  @override
+  Future<NetworkResponse> getUserProfile() async {
+    try {
+      final response = await apiClient.profile();
+      return NetworkResponse(true, data: response);
+    } on DioException catch (e) {
+      final message = e.message;
+      return NetworkResponse(false, error: message);
+    } catch (e) {
+      return NetworkResponse(false, error: e.toString());
+    }
+  }
+}
