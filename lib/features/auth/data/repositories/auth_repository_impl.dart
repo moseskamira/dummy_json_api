@@ -18,7 +18,8 @@ class AuthRepositoryImpl implements AuthRepository {
       final response = await apiClient.login(request);
       return NetworkResponse(true, data: response);
     } on DioException catch (e) {
-      return NetworkResponse(false, error: e.response?.data['message']);
+      final message = e.response?.data['message'];
+      return NetworkResponse(false, error: message);
     } catch (e) {
       return NetworkResponse(false, error: e.toString());
     }

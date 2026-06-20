@@ -1,4 +1,6 @@
-import 'package:dummy_json_api/features/profile/data/models/user_profile.dart';
+import 'package:dummy_json_api/features/profile/data/mappers/user_profile_dto_mapper.dart';
+import 'package:dummy_json_api/features/profile/data/models/user_profile_dto.dart';
+import 'package:dummy_json_api/features/profile/domain/models/user_profile.dart';
 import 'package:dummy_json_api/features/profile/domain/repositories/profile_repository.dart';
 import 'package:dummy_json_api/features/profile/logic/profile_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,10 +14,9 @@ class ProfileCubit extends Cubit<ProfileState> {
     emit(LoadingState());
     final response = await repository.getUserProfile();
     if (response.success) {
-      final responseData = response.data;
-      UserProfile profile = UserProfile.fromJson(responseData);
-      print('GOTUSER: ${profile.toJson()}');
-      emit(SuccessState(profile: profile));
+      final userProfileDto = response.data as UserProfileDto;
+      final UserProfile userProfile = userProfileDto.toDomain();
+      emit(SuccessState(profile: userProfile));
     } else {
       final error = response.error;
       emit(ErrorState(message: error ?? 'Something wrong happened'));

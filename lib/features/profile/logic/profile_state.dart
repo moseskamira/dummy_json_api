@@ -1,5 +1,6 @@
-import 'package:dummy_json_api/features/profile/data/models/user_profile.dart';
 import 'package:equatable/equatable.dart';
+
+import '../domain/models/user_profile.dart';
 
 class ProfileState extends Equatable {
   const ProfileState();
