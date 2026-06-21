@@ -6,7 +6,7 @@ This project serves as a practical reference for Flutter developers looking to b
 
 ---
 
-## ✨ Features
+## Features
 
 * Feature-Based Clean Architecture
 * Cubit/BLoC State Management
@@ -23,7 +23,7 @@ This project serves as a practical reference for Flutter developers looking to b
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 This project follows a **Feature-Based Clean Architecture** approach where each feature is self-contained and organized into four layers:
 
@@ -61,7 +61,7 @@ Responsible for presentation and user interaction.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 lib/
@@ -113,7 +113,7 @@ lib/
 
 ---
 
-## 🔄 Data Flow
+## Data Flow
 
 ```text
 API Response
@@ -133,7 +133,7 @@ UI
 
 ---
 
-## 🧩 DTO to Domain Mapping Example
+## DTO to Domain Mapping Example
 
 ```dart
 extension UserProfileDtoMapper on UserProfileDto {
@@ -155,7 +155,7 @@ This approach keeps API response models separate from business models, resulting
 
 ---
 
-## 🚀 Technologies Used
+## Technologies Used
 
 * Flutter
 * Dart
@@ -169,7 +169,7 @@ This approach keeps API response models separate from business models, resulting
 
 ---
 
-## ⚙️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -181,7 +181,7 @@ This approach keeps API response models separate from business models, resulting
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/<your-username>/flutter-dummyjson-client.git
+git clone https://github.com/moseskamira/flutter-dummyjson-client.git
 ```
 
 ### Navigate to the Project
@@ -216,7 +216,7 @@ flutter run
 
 ---
 
-## 📚 Learning Objectives
+## Learning Objectives
 
 This project demonstrates:
 
@@ -234,7 +234,7 @@ This project demonstrates:
 
 ---
 
-## 🌐 API Source
+## API Source
 
 This application consumes data from the DummyJSON API:
 
@@ -242,7 +242,7 @@ https://dummyjson.com
 
 ---
 
-## 🎯 Project Purpose
+## Project Purpose
 
 The purpose of this repository is to provide a real-world Flutter application that showcases modern architectural patterns and development practices. It can be used as:
 
@@ -253,7 +253,7 @@ The purpose of this repository is to provide a real-world Flutter application th
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 Contributions, suggestions, and improvements are welcome.
 
@@ -261,13 +261,13 @@ Feel free to fork the repository, create a feature branch, and submit a pull req
 
 ---
 
-## 📄 License
+## License
 
 This project is intended for educational and learning purposes.
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **MosesKamira**
 
