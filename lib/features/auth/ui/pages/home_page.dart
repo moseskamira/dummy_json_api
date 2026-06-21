@@ -1,4 +1,7 @@
+import 'package:dummy_json_api/features/carts/logic/cart_cubit.dart';
+import 'package:dummy_json_api/features/products/logic/product_cubit.dart';
 import 'package:dummy_json_api/features/profile/logic/profile_cubit.dart';
+import 'package:dummy_json_api/features/users/logic/user_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -16,6 +19,9 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     context.read<ProfileCubit>().getProfile();
+    context.read<UserCubit>().getUsers();
+    context.read<ProductCubit>().getProducts();
+    context.read<CartCubit>().getCarts();
   }
 
   @override
