@@ -2,8 +2,14 @@ import 'package:dummy_json_api/app/router/app_router.dart';
 import 'package:dummy_json_api/app/themes/app_theme.dart';
 import 'package:dummy_json_api/features/auth/data/repositories/auth_repository_impl.dart';
 import 'package:dummy_json_api/features/auth/logic/auth_cubit.dart';
+import 'package:dummy_json_api/features/carts/data/repositories/cart_repository_impl.dart';
+import 'package:dummy_json_api/features/carts/logic/cart_cubit.dart';
+import 'package:dummy_json_api/features/products/data/repositories/product_repository_impl.dart';
+import 'package:dummy_json_api/features/products/logic/product_cubit.dart';
 import 'package:dummy_json_api/features/profile/data/repositories/profile_repository_impl.dart';
 import 'package:dummy_json_api/features/profile/logic/profile_cubit.dart';
+import 'package:dummy_json_api/features/users/data/repositories/user_repository_impl.dart';
+import 'package:dummy_json_api/features/users/logic/user_cubit.dart';
 import 'package:dummy_json_api/shared/providers/app_state_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,6 +24,9 @@ class MyApp extends StatelessWidget {
       providers: [
         RepositoryProvider(create: (_) => AuthRepositoryImpl()),
         RepositoryProvider(create: (_) => ProfileRepositoryImpl()),
+        RepositoryProvider(create: (_) => UserRepositoryImpl()),
+        RepositoryProvider(create: (_) => ProductRepositoryImpl()),
+        RepositoryProvider(create: (_) => CartRepositoryImpl()),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -26,6 +35,15 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (ctx) => ProfileCubit(ctx.read<ProfileRepositoryImpl>()),
+          ),
+          BlocProvider(
+            create: (ctx) => UserCubit(ctx.read<UserRepositoryImpl>()),
+          ),
+          BlocProvider(
+            create: (ctx) => ProductCubit(ctx.read<ProductRepositoryImpl>()),
+          ),
+          BlocProvider(
+            create: (ctx) => CartCubit(ctx.read<CartRepositoryImpl>()),
           ),
         ],
         child: MultiProvider(
