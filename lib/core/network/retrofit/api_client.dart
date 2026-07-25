@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dummy_json_api/features/auth/data/models/login_response.dart';
+import 'package:dummy_json_api/features/carts/data/models/cart.dart';
 import 'package:dummy_json_api/features/carts/data/models/carts_response.dart';
 import 'package:dummy_json_api/features/products/data/models/product_response.dart';
 import 'package:dummy_json_api/features/profile/data/models/user_profile_dto.dart';
@@ -33,4 +34,7 @@ abstract class ApiClient {
 
   @GET(Apis.carts)
   Future<CartsResponse> getCarts();
+
+  @GET(Apis.cart)
+  Future<Cart> getCart(@Path('id') String cartId);
 }
