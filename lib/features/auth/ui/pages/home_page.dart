@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     context.read<UserCubit>().getUsers();
     context.read<ProductCubit>().getProducts();
     context.read<CartCubit>().getCarts();
+    context.read<CartCubit>().getCart('1');
   }
 
   @override
