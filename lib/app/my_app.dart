@@ -4,6 +4,8 @@ import 'package:dummy_json_api/features/auth/data/repositories/auth_repository_i
 import 'package:dummy_json_api/features/auth/logic/auth_cubit.dart';
 import 'package:dummy_json_api/features/carts/data/repositories/cart_repository_impl.dart';
 import 'package:dummy_json_api/features/carts/logic/cart_cubit.dart';
+import 'package:dummy_json_api/features/posts/data/repositories/post_repository_impl.dart';
+import 'package:dummy_json_api/features/posts/logic/post_cubit.dart';
 import 'package:dummy_json_api/features/products/data/repositories/product_repository_impl.dart';
 import 'package:dummy_json_api/features/products/logic/product_cubit.dart';
 import 'package:dummy_json_api/features/profile/data/repositories/profile_repository_impl.dart';
@@ -27,6 +29,7 @@ class MyApp extends StatelessWidget {
         RepositoryProvider(create: (_) => UserRepositoryImpl()),
         RepositoryProvider(create: (_) => ProductRepositoryImpl()),
         RepositoryProvider(create: (_) => CartRepositoryImpl()),
+        RepositoryProvider(create: (_) => PostRepositoryImpl()),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -44,6 +47,9 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (ctx) => CartCubit(ctx.read<CartRepositoryImpl>()),
+          ),
+          BlocProvider(
+            create: (ctx) => PostCubit(ctx.read<PostRepositoryImpl>()),
           ),
         ],
         child: MultiProvider(
