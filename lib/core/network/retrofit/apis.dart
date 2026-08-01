@@ -1,7 +1,7 @@
 class Apis {
   Apis._();
 
-  static const BaseUrl = 'https://dummyjson.com';
+  static const baseUrl = 'https://dummyjson.com';
   static const login = '/auth/login';
   static const profile = '/auth/me';
   static const refresh = '/auth/refresh';

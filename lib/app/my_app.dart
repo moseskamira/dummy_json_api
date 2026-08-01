@@ -4,6 +4,8 @@ import 'package:dummy_json_api/features/auth/data/repositories/auth_repository_i
 import 'package:dummy_json_api/features/auth/logic/auth_cubit.dart';
 import 'package:dummy_json_api/features/carts/data/repositories/cart_repository_impl.dart';
 import 'package:dummy_json_api/features/carts/logic/cart_cubit.dart';
+import 'package:dummy_json_api/features/posts/data/repositories/post_repository_impl.dart';
+import 'package:dummy_json_api/features/posts/logic/post_cubit.dart';
 import 'package:dummy_json_api/features/products/data/repositories/product_repository_impl.dart';
 import 'package:dummy_json_api/features/products/logic/product_cubit.dart';
 import 'package:dummy_json_api/features/profile/data/repositories/profile_repository_impl.dart';
@@ -22,28 +24,52 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
       providers: [
-        RepositoryProvider(create: (_) => AuthRepositoryImpl()),
-        RepositoryProvider(create: (_) => ProfileRepositoryImpl()),
-        RepositoryProvider(create: (_) => UserRepositoryImpl()),
-        RepositoryProvider(create: (_) => ProductRepositoryImpl()),
-        RepositoryProvider(create: (_) => CartRepositoryImpl()),
+        RepositoryProvider<AuthRepositoryImpl>(
+          create: (_) => AuthRepositoryImpl(),
+        ),
+        RepositoryProvider<ProfileRepositoryImpl>(
+          create: (_) => ProfileRepositoryImpl(),
+        ),
+        RepositoryProvider<UserRepositoryImpl>(
+          create: (_) => UserRepositoryImpl(),
+        ),
+        RepositoryProvider<ProductRepositoryImpl>(
+          create: (_) => ProductRepositoryImpl(),
+        ),
+        RepositoryProvider<CartRepositoryImpl>(
+          create: (_) => CartRepositoryImpl(),
+        ),
+        RepositoryProvider<PostRepositoryImpl>(
+          create: (_) => PostRepositoryImpl(),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
-          BlocProvider(
-            create: (ctx) => AuthCubit(ctx.read<AuthRepositoryImpl>()),
+          BlocProvider<AuthCubit>(
+            lazy: true,
+            create: (context) => AuthCubit(context.read<AuthRepositoryImpl>()),
           ),
-          BlocProvider(
-            create: (ctx) => ProfileCubit(ctx.read<ProfileRepositoryImpl>()),
+          BlocProvider<ProfileCubit>(
+            lazy: true,
+            create: (context) =>
+                ProfileCubit(context.read<ProfileRepositoryImpl>()),
           ),
-          BlocProvider(
-            create: (ctx) => UserCubit(ctx.read<UserRepositoryImpl>()),
+          BlocProvider<UserCubit>(
+            lazy: true,
+            create: (context) => UserCubit(context.read<UserRepositoryImpl>()),
           ),
-          BlocProvider(
-            create: (ctx) => ProductCubit(ctx.read<ProductRepositoryImpl>()),
+          BlocProvider<ProductCubit>(
+            lazy: true,
+            create: (context) =>
+                ProductCubit(context.read<ProductRepositoryImpl>()),
           ),
-          BlocProvider(
-            create: (ctx) => CartCubit(ctx.read<CartRepositoryImpl>()),
+          BlocProvider<CartCubit>(
+            lazy: true,
+            create: (context) => CartCubit(context.read<CartRepositoryImpl>()),
+          ),
+          BlocProvider<PostCubit>(
+            lazy: true,
+            create: (context) => PostCubit(context.read<PostRepositoryImpl>()),
           ),
         ],
         child: MultiProvider(
