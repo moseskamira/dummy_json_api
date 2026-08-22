@@ -10,6 +10,8 @@ class Initial extends ProductState {}
 
 class GPLoading extends ProductState {}
 
+class GetSingleProductLoading extends ProductState {}
+
 class GPSuccess extends ProductState {
   final List<Product> products;
 
@@ -19,10 +21,28 @@ class GPSuccess extends ProductState {
   List<Object?> get props => [products];
 }
 
+class GetSingleProductSuccess extends ProductState {
+  final dynamic product;
+
+  GetSingleProductSuccess({required this.product});
+
+  @override
+  List<Object?> get props => [product];
+}
+
 class GPError extends ProductState {
   final String message;
 
   GPError({required this.message});
+
+  @override
+  List<Object?> get props => [message];
+}
+
+class GetSingleProductError extends ProductState {
+  final String message;
+
+  GetSingleProductError({required this.message});
 
   @override
   List<Object?> get props => [message];

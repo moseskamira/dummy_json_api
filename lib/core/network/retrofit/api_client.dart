@@ -3,6 +3,7 @@ import 'package:dummy_json_api/features/auth/data/models/login_response.dart';
 import 'package:dummy_json_api/features/carts/data/models/cart.dart';
 import 'package:dummy_json_api/features/carts/data/models/carts_response.dart';
 import 'package:dummy_json_api/features/posts/data/models/posts_response.dart';
+import 'package:dummy_json_api/features/products/data/models/product.dart';
 import 'package:dummy_json_api/features/products/data/models/product_response.dart';
 import 'package:dummy_json_api/features/profile/data/models/user_profile_dto.dart';
 import 'package:dummy_json_api/features/users/data/models/users_response.dart';
@@ -32,6 +33,9 @@ abstract class ApiClient {
 
   @GET(Apis.products)
   Future<ProductsResponse> getProducts();
+
+  @GET(Apis.product)
+  Future<Product> getProduct(@Path('id') String prodId);
 
   @GET(Apis.carts)
   Future<CartsResponse> getCarts();
