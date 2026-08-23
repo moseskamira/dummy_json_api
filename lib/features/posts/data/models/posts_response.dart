@@ -1,10 +1,11 @@
+import 'package:dummy_json_api/features/posts/data/models/post.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'posts_response.g.dart';
 
 @JsonSerializable()
 class PostsResponse {
-  final List<dynamic> posts;
+  final List<Post> posts;
 
   PostsResponse(this.posts);
 

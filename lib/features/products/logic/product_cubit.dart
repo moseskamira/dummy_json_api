@@ -1,3 +1,4 @@
+import 'package:dummy_json_api/features/products/data/models/product.dart';
 import 'package:dummy_json_api/features/products/domain/repositories/product_repository.dart';
 import 'package:dummy_json_api/features/products/logic/product_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,6 +20,18 @@ class ProductCubit extends Cubit<ProductState> {
     } else {
       final message = response.error ?? 'Something went wrong';
       emit(GPError(message: message));
+    }
+  }
+
+  Future<void> getProduct(String prodId) async {
+    emit(GetSingleProductLoading());
+    final response = await repository.getProduct(prodId);
+    if (response.success) {
+      final product = response.data as Product;
+      emit(GetSingleProductSuccess(product: product));
+    } else {
+      final message = response.error ?? 'Something went wrong';
+      emit(GetSingleProductError(message: message));
     }
   }
 }

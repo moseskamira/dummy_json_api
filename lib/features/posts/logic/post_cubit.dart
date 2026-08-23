@@ -19,4 +19,17 @@ class PostCubit extends Cubit<PostState> {
       emit(PostsError(message: message));
     }
   }
+
+  Future<void> getUserPosts(String userId) async {
+    emit(UserPostsLoading());
+    final response = await repository.getUserPosts(userId);
+    if (response.success) {
+      final responseData = response.data as PostsResponse;
+      print('USERPOSTSRETURNED:${responseData.toJson()}');
+      emit(UserPostsSuccess(response: responseData));
+    } else {
+      final message = response.error ?? 'Something wrong happened';
+      emit(UserPostsError(message: message));
+    }
+  }
 }
