@@ -24,10 +24,12 @@ class _HomePageState extends State<HomePage> {
         context.read<ProfileCubit>().getProfile(),
         context.read<UserCubit>().getUsers(),
         context.read<ProductCubit>().getProducts(),
+        context.read<ProductCubit>().getProductsCategories(),
         context.read<ProductCubit>().getProduct('1'),
         context.read<CartCubit>().getCarts(),
         context.read<CartCubit>().getCart('1'),
         context.read<PostCubit>().getPosts(),
+        context.read<PostCubit>().getPostByID('1'),
         context.read<PostCubit>().getUserPosts('1'),
       ]);
     });
