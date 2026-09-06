@@ -34,4 +34,16 @@ class ProductCubit extends Cubit<ProductState> {
       emit(GetSingleProductError(message: message));
     }
   }
+
+  Future<void> getProductsCategories() async {
+    emit(GetProductsCategoriesLoading());
+    final response = await repository.getProductsCategories();
+    if (response.success) {
+      final categories = response.data;
+      emit(GetProductsCategoriesSuccess(categories: categories));
+    } else {
+      final message = response.error ?? 'Something went wrong';
+      emit(GetProductsCategoriesError(message: message));
+    }
+  }
 }
